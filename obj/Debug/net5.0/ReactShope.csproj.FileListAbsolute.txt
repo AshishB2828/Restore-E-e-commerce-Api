@@ -22,7 +22,6 @@ C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Ide
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -58,3 +57,9 @@ C:\Users\unnib\source\repos\ReactShope\ReactShope\obj\Debug\net5.0\ReactShope.dl
 C:\Users\unnib\source\repos\ReactShope\ReactShope\obj\Debug\net5.0\ref\ReactShope.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\obj\Debug\net5.0\ReactShope.pdb
 C:\Users\unnib\source\repos\ReactShope\ReactShope\obj\Debug\net5.0\ReactShope.genruntimeconfig.cache
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

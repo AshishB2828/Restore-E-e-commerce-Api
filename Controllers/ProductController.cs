@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReactShope.Data;
@@ -18,9 +19,11 @@ namespace ReactShope.Controllers
     public class ProductController : ControllerBase
     {
         private readonly StoreContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public ProductController(StoreContext context)
+        public ProductController(StoreContext context, UserManager<User> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
 
@@ -36,6 +39,23 @@ namespace ReactShope.Controllers
                                 .ToPagedList(query, param.PageNumber,param.PageSize);
 
             Response.AddPaginationHeader(products.MetaData);
+
+            //var user = new User
+            //{
+            //    UserName = "Ashish",
+            //    Email = "user1@user.com"
+            //};
+
+            //await _userManager.CreateAsync(user, "User@123");
+            //await _userManager.AddToRoleAsync(user, "Member");
+
+            //user.UserName = "Unni";
+            //user.Email = "admin2@admin2.com";
+
+            //await _userManager.CreateAsync(user, "Admin2@123");
+            //await _userManager.AddToRolesAsync(user, new[] { "Admin", "Member" });
+
+
             return products;
         }
 

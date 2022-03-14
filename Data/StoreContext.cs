@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ReactShope.Entity;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ReactShope.Data
 {
-    public class StoreContext : DbContext
+    public class StoreContext : IdentityDbContext<User>
     {
         public StoreContext(DbContextOptions options) : base(options)
         {
@@ -18,7 +20,8 @@ namespace ReactShope.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
+            base.OnModelCreating(builder);
+
             builder.Entity<Product>().HasData(
                
                  new Product
@@ -66,6 +69,14 @@ namespace ReactShope.Data
                       Type = "Laptop"
                   }
 
+                );
+
+            //Adding Roles
+
+            builder.Entity<IdentityRole>()
+                .HasData(
+                    new IdentityRole { Name = "Member", NormalizedName = "MEMBER" },
+                    new IdentityRole { Name="Admin", NormalizedName="ADMIN"}
                 );
         }
     }

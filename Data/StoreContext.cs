@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ReactShope.Entity;
+using ReactShope.Entity.OrderAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ReactShope.Data
 {
-    public class StoreContext : IdentityDbContext<User>
+    public class StoreContext : IdentityDbContext<User, Role, int>
     {
         public StoreContext(DbContextOptions options) : base(options)
         {
@@ -17,6 +18,8 @@ namespace ReactShope.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -73,11 +76,16 @@ namespace ReactShope.Data
 
             //Adding Roles
 
-            builder.Entity<IdentityRole>()
+            builder.Entity<Role>()
                 .HasData(
-                    new IdentityRole { Name = "Member", NormalizedName = "MEMBER" },
-                    new IdentityRole { Name="Admin", NormalizedName="ADMIN"}
+                    new Role { Id=1, Name = "Member", NormalizedName = "MEMBER" },
+                    new Role { Id=2, Name="Admin", NormalizedName="ADMIN"}
                 );
+            builder.Entity<User>()
+                .HasOne(a => a.Address)
+                .WithOne()
+                .HasForeignKey<UserAddress>(a => a.Id)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

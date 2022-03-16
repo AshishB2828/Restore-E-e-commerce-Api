@@ -1,4 +1,5 @@
-﻿using ReactShope.DTOs;
+﻿using Microsoft.EntityFrameworkCore;
+using ReactShope.DTOs;
 using ReactShope.Entity;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,15 @@ namespace ReactShope.Extension
                               })
                               .ToList()
             };
+        }
+
+
+        public static IQueryable<Basket> RetrieveBasketWithItems(this IQueryable<Basket> query, string buyerId)
+        {
+
+            return query.Include(x => x.Items)
+                          .ThenInclude(p => p.Product)
+                          .Where(b => b.BuyerId == buyerId);
         }
     }
 }

@@ -25,9 +25,12 @@ namespace ReactShope.Extension
                                   PictureUrl = i.Product.PictureUrl,
                                   Type = i.Product.Type,
                                   Brand = i.Product.Brand,
-                                  Quantity = i.Quantity
+                                  Quantity = i.Quantity,
+                                   
                               })
-                              .ToList()
+                              .ToList(),
+                ClientSecret = basket.ClientSecret,
+                PaymentIntentId = basket.PaymentIntentId
             };
         }
 

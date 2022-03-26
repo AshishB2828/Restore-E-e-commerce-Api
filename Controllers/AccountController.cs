@@ -114,6 +114,18 @@ namespace ReactShope.Controllers
                            .FirstOrDefaultAsync(x => x.BuyerId == buyerId);
         }
 
+
+        [Authorize]
+        [HttpGet("savedAddress")]
+        public async Task<ActionResult<UserAddress>> GetSavedAddress()
+        {
+            return await _userManager.Users
+                        .Where(x => x.UserName == User.Identity.Name)
+                        .Select(user => user.Address)
+                        .FirstOrDefaultAsync();
+        }
+
+
         private string GetBuyerId()
         {
             return User.Identity?.Name ?? Request.Cookies["buyerId"];

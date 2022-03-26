@@ -25,19 +25,19 @@ namespace ReactShope.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Order>>> GetOrders()
+        public async Task<ActionResult<List<OrderDto>>> GetOrders()
         {
             return await _storeContext.Orders
-                    .Include(o => o.OrderItems)
+                    .ProjectOrderToOrderDto()
                     .Where(x => x.BuyerId == User.Identity.Name)
                     .ToListAsync();
         }
 
         [HttpGet("{id}", Name = "GetOrder")]
-        public async Task<ActionResult<Order>> GetOrder(int id)
+        public async Task<ActionResult<OrderDto>> GetOrder(int id)
         {
             return await _storeContext.Orders
-                .Include(x => x.OrderItems)
+                .ProjectOrderToOrderDto()
                 .Where(x => x.BuyerId == User.Identity.Name && x.Id == id)
                 .FirstOrDefaultAsync();
         }
@@ -85,7 +85,8 @@ namespace ReactShope.Controllers
                 BuyerId = User.Identity.Name,
                 ShippingAddress = orderDto.ShippingAddress,
                 Subtotal = subtotal,
-                DeliveryFee = deliveryFee
+                DeliveryFee = deliveryFee,
+                PaymentIntentId = basket.PaymentIntentId
             };
 
             _storeContext.Orders.Add(order);
@@ -94,9 +95,10 @@ namespace ReactShope.Controllers
             if(orderDto.SaveAddress)
             {
                 var user = await _storeContext.Users
+                        .Include(a => a.Address)
                         .FirstOrDefaultAsync(x => x.UserName == User.Identity.Name);
 
-                user.Address = new UserAddress
+                var address = new UserAddress
                 {
                     FullName = orderDto.ShippingAddress.FullName,
                     Address1 = orderDto.ShippingAddress.Address1,
@@ -106,6 +108,9 @@ namespace ReactShope.Controllers
                     State = orderDto.ShippingAddress.State,
                     Zip = orderDto.ShippingAddress.Zip,
                 };
+
+                user.Address = address;
+
                 _storeContext.Update(user);
             }
 

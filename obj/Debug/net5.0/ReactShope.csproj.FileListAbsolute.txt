@@ -65,3 +65,11 @@ C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Ext
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Stripe.net.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\CloudinaryDotNet.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\Microsoft.Extensions.WebEncoders.dll
+C:\Users\unnib\source\repos\ReactShope\ReactShope\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

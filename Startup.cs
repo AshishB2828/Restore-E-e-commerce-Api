@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using ReactShope.Data;
 using ReactShope.Entity;
 using ReactShope.Middleware;
+using ReactShope.RequestHelpers;
 using ReactShope.Services;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,8 @@ namespace ReactShope
             services.AddAuthorization();
             services.AddScoped<TokenServices>();
             services.AddScoped<PaymentServices>();
+            services.AddAutoMapper(typeof(MappingProfile).Assembly);
+            services.AddScoped<ImageService>();
 
         }
 
